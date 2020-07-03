@@ -18,9 +18,80 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\.git\**" />
+    <Compile Remove="ClientApp\dist\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\.git\**" />
+    <Content Remove="ClientApp\dist\**" />
+    <EmbeddedResource Remove="ClientApp\.git\**" />
+    <EmbeddedResource Remove="ClientApp\dist\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\.git\**" />
+    <None Remove="ClientApp\dist\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="ClientApp\.git\COMMIT_EDITMSG" />
+    <None Remove="ClientApp\.git\config" />
+    <None Remove="ClientApp\.git\description" />
+    <None Remove="ClientApp\.git\HEAD" />
+    <None Remove="ClientApp\.git\hooks\applypatch-msg.sample" />
+    <None Remove="ClientApp\.git\hooks\commit-msg.sample" />
+    <None Remove="ClientApp\.git\hooks\fsmonitor-watchman.sample" />
+    <None Remove="ClientApp\.git\hooks\post-update.sample" />
+    <None Remove="ClientApp\.git\hooks\pre-applypatch.sample" />
+    <None Remove="ClientApp\.git\hooks\pre-commit.sample" />
+    <None Remove="ClientApp\.git\hooks\pre-merge-commit.sample" />
+    <None Remove="ClientApp\.git\hooks\pre-push.sample" />
+    <None Remove="ClientApp\.git\hooks\pre-rebase.sample" />
+    <None Remove="ClientApp\.git\hooks\pre-receive.sample" />
+    <None Remove="ClientApp\.git\hooks\prepare-commit-msg.sample" />
+    <None Remove="ClientApp\.git\hooks\update.sample" />
+    <None Remove="ClientApp\.git\index" />
+    <None Remove="ClientApp\.git\info\exclude" />
+    <None Remove="ClientApp\.git\logs\HEAD" />
+    <None Remove="ClientApp\.git\logs\refs\heads\master" />
+    <None Remove="ClientApp\.git\objects\01\d95554396fa654ebeb18b76264ad85b0ac9c5f" />
+    <None Remove="ClientApp\.git\objects\06\c734263e1716e120bbb2771845eca1ae74c055" />
+    <None Remove="ClientApp\.git\objects\07\05f4a7e0e4cc94db417466e8e59dde4a36b676" />
+    <None Remove="ClientApp\.git\objects\11\23fbb8434b8a8c5012bde199a8d56921ee5460" />
+    <None Remove="ClientApp\.git\objects\16\317897b1c50a3a71bc775a8d6429f2b4c6cf98" />
+    <None Remove="ClientApp\.git\objects\16\5b22afe8bab1fec590e6da1bfc7d82e1832610" />
+    <None Remove="ClientApp\.git\objects\2c\3ba2995c8510c02ca812f90280146738f162cf" />
+    <None Remove="ClientApp\.git\objects\30\956ae7ea265edf9bdc17001d75457e51ebe107" />
+    <None Remove="ClientApp\.git\objects\36\12073bc31cd4c1f5d6cbb00318521e9a61bd8a" />
+    <None Remove="ClientApp\.git\objects\39\b800f789619f0fb8063aba2e05bd5a57850e57" />
+    <None Remove="ClientApp\.git\objects\4c\8331a4c72a1d7d1b3e335b481822a100582478" />
+    <None Remove="ClientApp\.git\objects\56\5a11a2156b8307120e25ba35a89bf17a094f26" />
+    <None Remove="ClientApp\.git\objects\5c\a21e3cc4db0972fb56e5dd90a5f2147857b7f7" />
+    <None Remove="ClientApp\.git\objects\64\00fde7d544029c82e13d368a6b69d6664fe857" />
+    <None Remove="ClientApp\.git\objects\74\e9435539f2529967ed35456da66dd1fc27c8e8" />
+    <None Remove="ClientApp\.git\objects\7b\4f817adb754769ca126a939d48ac4b0850489d" />
+    <None Remove="ClientApp\.git\objects\7c\798cfff07e3edfa1532700adcf713ab17ff545" />
+    <None Remove="ClientApp\.git\objects\7f\eacadc636ddabaee087a1457fb3cbeb8222e55" />
+    <None Remove="ClientApp\.git\objects\80\848532e47d58cc7a4b618f600b438960f9f045" />
+    <None Remove="ClientApp\.git\objects\86\d943a9b2e8f3bb69fbe37fd8363962646b1d92" />
+    <None Remove="ClientApp\.git\objects\8d\c079241d29456afd3b14dadc66e7b3a451eb45" />
+    <None Remove="ClientApp\.git\objects\90\d4ee0072ce3fc41812f8af910219f9eea3c3de" />
+    <None Remove="ClientApp\.git\objects\97\24ab29044381ba83ed0cf5bfb373d0a92c43bb" />
+    <None Remove="ClientApp\.git\objects\99\7406ad22c29aae95893fb3d666c30258a09537" />
+    <None Remove="ClientApp\.git\objects\a9\eaedc7492aa5ab5ed5a5825e1134bb797b8a00" />
+    <None Remove="ClientApp\.git\objects\aa\665d6b8740860e1d67de37a26ab362ef8ba974" />
+    <None Remove="ClientApp\.git\objects\b4\d5be981ad4bec0e53b2bcfe7c1efc98ddf8f6f" />
+    <None Remove="ClientApp\.git\objects\b8\498c26f24ea7661ad43fda1a000c7b2cef29e3" />
+    <None Remove="ClientApp\.git\objects\bc\a9a26240b5c83d171c1ea6c061226f3d68ce10" />
+    <None Remove="ClientApp\.git\objects\c4\c255e4d00875740f042bf7df461194d1d6d2b8" />
+    <None Remove="ClientApp\.git\objects\c7\b673cf44b388e9989fe908b78d7d73cd2e1409" />
+    <None Remove="ClientApp\.git\objects\c8\d70f15200546102f7f9f7192ec8290d9bb6d0a" />
+    <None Remove="ClientApp\.git\objects\d5\64d0bc3dd917926892c55e3706cc116d5b165e" />
+    <None Remove="ClientApp\.git\objects\d7\ebae7e82ea7e5a213f0020fe946d9bb60b4325" />
+    <None Remove="ClientApp\.git\objects\e6\9de29bb2d1d6434b8b29ae775ad8c2e48c5391" />
+    <None Remove="ClientApp\.git\objects\e8\9330a618c137cdaccde46f87923736cc04dfb4" />
+    <None Remove="ClientApp\.git\objects\f1\f9b13ace0dec252a66505d994110702378ac65" />
+    <None Remove="ClientApp\.git\objects\f2\f6a9d97c8ce441a625e9b667ec1bfa8382d291" />
+    <None Remove="ClientApp\.git\refs\heads\master" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
