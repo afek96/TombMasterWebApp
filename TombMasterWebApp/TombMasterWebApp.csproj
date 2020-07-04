@@ -92,6 +92,43 @@
     <None Remove="ClientApp\.git\objects\f1\f9b13ace0dec252a66505d994110702378ac65" />
     <None Remove="ClientApp\.git\objects\f2\f6a9d97c8ce441a625e9b667ec1bfa8382d291" />
     <None Remove="ClientApp\.git\refs\heads\master" />
+    <None Remove="ClientApp\dist\01.f9d01435976a8cfb9daa.png" />
+    <None Remove="ClientApp\dist\02.53687cbe6512fb70292f.png" />
+    <None Remove="ClientApp\dist\03.bc6306f4b8105410a282.png" />
+    <None Remove="ClientApp\dist\04.2006e36b1a39bb1ce0cb.png" />
+    <None Remove="ClientApp\dist\05.1fd3bfd5831b5af640a3.png" />
+    <None Remove="ClientApp\dist\06.d50a610ed86c3d5363bb.png" />
+    <None Remove="ClientApp\dist\07.535b98d8b10c9c1713fb.png" />
+    <None Remove="ClientApp\dist\08.83eb2c7e2892a66afe14.png" />
+    <None Remove="ClientApp\dist\09.2012ae6071a90778f12d.png" />
+    <None Remove="ClientApp\dist\3rdpartylicenses.txt" />
+    <None Remove="ClientApp\dist\arrow_left.db6e2d88c7c35a775ce4.svg" />
+    <None Remove="ClientApp\dist\arrow_right.f7c6ac6d310d3b82f0a0.svg" />
+    <None Remove="ClientApp\dist\fa-brands-400.140e875e1e58453221ad.eot" />
+    <None Remove="ClientApp\dist\fa-brands-400.64295e33efa263357733.woff" />
+    <None Remove="ClientApp\dist\fa-brands-400.65ed7d005846ac8f8096.svg" />
+    <None Remove="ClientApp\dist\fa-brands-400.6bc193d6b167d7175b0f.woff2" />
+    <None Remove="ClientApp\dist\fa-brands-400.f318edaf81ff2d1dc049.ttf" />
+    <None Remove="ClientApp\dist\fa-regular-400.07c1f6dce8b2bfcf5111.ttf" />
+    <None Remove="ClientApp\dist\fa-regular-400.45bbc08ee25c0f5cd0fb.eot" />
+    <None Remove="ClientApp\dist\fa-regular-400.5a071ce2da7c9811d1d2.woff" />
+    <None Remove="ClientApp\dist\fa-regular-400.75761b3a9c4443721310.woff2" />
+    <None Remove="ClientApp\dist\fa-regular-400.eae91b15e71cf13b2f8c.svg" />
+    <None Remove="ClientApp\dist\fa-solid-900.1b81e504c3d6fcfbdf46.eot" />
+    <None Remove="ClientApp\dist\fa-solid-900.2c16a818018a030c0b87.ttf" />
+    <None Remove="ClientApp\dist\fa-solid-900.792bbe12870f9e1707aa.woff2" />
+    <None Remove="ClientApp\dist\fa-solid-900.e01ea526204590d06558.svg" />
+    <None Remove="ClientApp\dist\fa-solid-900.f89ad185d4d491dd5ffe.woff" />
+    <None Remove="ClientApp\dist\favicon.ico" />
+    <None Remove="ClientApp\dist\index.html" />
+    <None Remove="ClientApp\dist\main-es2015.3b0e55ca74cc14a7c9f4.js" />
+    <None Remove="ClientApp\dist\main-es5.3b0e55ca74cc14a7c9f4.js" />
+    <None Remove="ClientApp\dist\polyfills-es2015.a0fa45e0fa52702b64f0.js" />
+    <None Remove="ClientApp\dist\polyfills-es5.2dcde1efe3c1bf4aaa25.js" />
+    <None Remove="ClientApp\dist\runtime-es2015.409e6590615fb48d139f.js" />
+    <None Remove="ClientApp\dist\runtime-es5.409e6590615fb48d139f.js" />
+    <None Remove="ClientApp\dist\scripts.2fd360e0f1643d959e0d.js" />
+    <None Remove="ClientApp\dist\styles.4af77f6daf56a468ad1a.css" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
