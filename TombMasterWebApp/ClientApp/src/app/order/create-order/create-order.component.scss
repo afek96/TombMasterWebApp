@@ -1,0 +1,10 @@
+div input[type=date]{
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
+  div input[type=date]:disabled,div select:disabled{
+    background-color: #e9ecef;
+    opacity: 1;
+    color: #6b6e70;
+  }

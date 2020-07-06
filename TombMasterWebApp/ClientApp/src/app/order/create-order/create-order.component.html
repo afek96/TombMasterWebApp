@@ -1,68 +1,56 @@
 <form class="container pt-2" #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
   <div class="form-group row">
-    <label for="inputFont" class="col-sm-2 col-form-label">Czcionka</label>
-    <div class="col-sm-10">
-      <select class="browser-default custom-select">
-        <option selected>Wybierz czcionkę</option>
-        <option *ngFor="let font of fonts" [value]="font.id">{{ font.name }}</option>
+    <div class="col-sm-12 px-0">
+      <select class="browser-default custom-select" name="font" [(ngModel)]="font" (change)="onFontChange()">
+        <option selected [ngValue]="undefined">Wybierz czcionkę</option>
+        <option *ngFor="let font of fonts" [ngValue]="font">{{ font.name }}</option>
       </select>
     </div>
   </div>
   <div class="form-group row">
-<div class="col-sm-2 d-flex flex-row">
-      <mdb-checkbox class="align-middle" [default]=" true"></mdb-checkbox>
-
-    <label for="inputName" class="col-form-label">Imię i nazwisko</label>
+    <input class="form-control col-sm-9" type="text" placeholder="Imię i nazwisko" [disabled]="!fontPicked">    
+    <select class="browser-default custom-select col-sm-3" name="nameFontSize" [(ngModel)]="nameFontSize" (change)="onNameSizeChange()" [disabled]="!fontPicked">
+      <option selected [ngValue]="undefined">Rozmiar</option>
+      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+    </select>
   </div>
-    <div [ngClass]="{'col-sm-7': !nameFontSizePicked, 'col-sm-9': nameFontSizePicked}">
-      <input type="text" class="form-control" id="inputName" placeholder="Imię i nazwisko">
-    </div>
-
-    <div [ngClass]="{'col-sm-3': !nameFontSizePicked, 'col-sm-1': nameFontSizePicked}">
-      <select name="nameFontSize" class="browser-default custom-select" [(ngModel)]="nameFontSize"
-        (change)="onNameSizeChange()">
-        <option [ngValue]="{id:0, size:0}" selected>Wybierz rozmiar czcionki</option>
-        <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
-      </select>
-    </div>
-  </div>
-
-  <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-          <label class="form-check-label" for="gridRadios1">
-            First radio
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-          <label class="form-check-label" for="gridRadios2">
-            Second radio
-          </label>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-          <label class="form-check-label" for="gridRadios3">
-            Third disabled radio
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
   <div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1">
-        <label class="form-check-label" for="gridCheck1">
-          Example checkbox
-        </label>
-      </div>
-    </div>
+    <select class="browser-default custom-select col-sm-6" [disabled]="!fontPicked">
+      <option selected [ngValue]="undefined">Ś.P. rozmiar</option>
+      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+    </select>
+    <select class="browser-default custom-select col-sm-6" [disabled]="!fontPicked">
+      <option selected [ngValue]="undefined">Gwiazda i krzyż rozmiar</option>
+      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+    </select>
   </div>
+  
+  <div class="form-group row ">
+    <div class="md-form md-outline input-with-post-icon datepicker col-sm-3 px-0 my-0">
+      <input placeholder="Select date" type="date" id="example" class="form-control" [disabled]="!fontPicked">
+      <label for="example">Data urodzenia</label>
+    </div>
+    <select class="browser-default custom-select col-sm-3" [disabled]="!fontPicked">
+      <option selected [ngValue]="undefined">Rozmiar</option>
+      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+    </select>
+    <div class="md-form md-outline input-with-post-icon datepicker col-sm-3 px-0 my-0">
+      <input placeholder="Select date" type="date" id="example" class="form-control" [disabled]="!fontPicked">
+      <label for="example">Data śmierci</label>
+    </div>
+    <select class="browser-default custom-select col-sm-3" [disabled]="!fontPicked">
+      <option selected [ngValue]="undefined">Rozmiar</option>
+      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+    </select>
+  </div>
+   <div class="form-group row">
+    <input class="form-control col-sm-9" type="text" placeholder="Dodatkowy tekst" [disabled]="!fontPicked">
+    <select class="browser-default custom-select col-sm-3" [disabled]="!fontPicked">
+      <option selected [ngValue]="undefined">Rozmiar</option>
+      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+    </select>
+  </div>
+  
   <div class="form-group row">
     <div class="col-sm-10">
       <button type="submit" class="btn btn-primary">Sign in</button>

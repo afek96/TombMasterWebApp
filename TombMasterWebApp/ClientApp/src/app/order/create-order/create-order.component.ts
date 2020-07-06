@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms'
 
+import { Font } from '../../font'
 import { FontSize } from '../../font-size'
 
 @Component({
@@ -10,20 +11,24 @@ import { FontSize } from '../../font-size'
   styleUrls: ['./create-order.component.scss']
 })
 export class CreateOrderComponent implements OnInit {
+  fontPicked = false;
   nameFontSizePicked = false;
-  nameFontSize = new FontSize(0,0);
+  nameFontSize: FontSize;
+  font: Font;
 
   fonts = [
-    { id: '1', name: 'Czcionka 1' },
-    { id: '2', name: 'Czcionka 2' },
-    { id: '3', name: 'Czcionka 3' },
+    new Font(1, 'Czcionka 1'),
+    new Font(2, 'Czcionka 2'),
+    new Font(3, 'Czcionka 3'),
   ];
 
-  fontSizes = [
-    new FontSize( 1, 4 ),
-    new FontSize( 2, 5 ),
-    new FontSize( 3, 6 ),
-  ];
+  //TODO dictionary na string,FontSize[] albo inny sposób na przechowywanie
+
+  //fontSizes = [
+  //  new FontSize(1, 4),
+  //  new FontSize(2, 5),
+  //  new FontSize(3, 6),
+  //];
 
   constructor() { }
 
@@ -33,9 +38,14 @@ export class CreateOrderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFontChange(){
+    this.fontPicked = this.font != undefined;
+    console.log('Font change: ' + this.font?.id);
+  }
+
   onNameSizeChange() {
-    this.nameFontSizePicked = this.nameFontSize.id != 0;
-    console.log('Name size change: '+ this.nameFontSize.id);
- }
+    this.nameFontSizePicked = this.nameFontSize != undefined;
+    console.log('Name size change: ' + this.nameFontSize?.id);
+  }
 
 }
