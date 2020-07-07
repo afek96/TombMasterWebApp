@@ -9,19 +9,19 @@
   </div>
   <div class="form-group row">
     <input class="form-control col-sm-9" type="text" placeholder="Imię i nazwisko" [disabled]="!fontPicked">    
-    <select class="browser-default custom-select col-sm-3" name="nameFontSize" [(ngModel)]="nameFontSize" (change)="onNameSizeChange()" [disabled]="!fontPicked">
+    <select class="browser-default custom-select col-sm-3" name="nameProductType" [(ngModel)]="nameProductType" (change)="onNameSizeChange()" [disabled]="!fontPicked">
       <option selected [ngValue]="undefined">Rozmiar</option>
-      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+      <option *ngFor="let productType of productTypeService.productTypesForSignType[0]" [ngValue]="productType">{{ productType.size }}</option>
     </select>
   </div>
   <div class="form-group row">
     <select class="browser-default custom-select col-sm-6" [disabled]="!fontPicked">
       <option selected [ngValue]="undefined">Ś.P. rozmiar</option>
-      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+      <option *ngFor="let productType of productTypeService.productTypesForSignType[0]" [ngValue]="productType">{{ productType.size }}</option>
     </select>
     <select class="browser-default custom-select col-sm-6" [disabled]="!fontPicked">
       <option selected [ngValue]="undefined">Gwiazda i krzyż rozmiar</option>
-      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+      <option *ngFor="let productType of productTypeService.productTypesForSignType[0]" [ngValue]="productType">{{ productType.size }}</option>
     </select>
   </div>
   
@@ -32,7 +32,7 @@
     </div>
     <select class="browser-default custom-select col-sm-3" [disabled]="!fontPicked">
       <option selected [ngValue]="undefined">Rozmiar</option>
-      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+      <option *ngFor="let productType of productTypeService.productTypesForSignType[0]" [ngValue]="productType">{{ productType.size }}</option>
     </select>
     <div class="md-form md-outline input-with-post-icon datepicker col-sm-3 px-0 my-0">
       <input placeholder="Select date" type="date" id="example" class="form-control" [disabled]="!fontPicked">
@@ -40,14 +40,14 @@
     </div>
     <select class="browser-default custom-select col-sm-3" [disabled]="!fontPicked">
       <option selected [ngValue]="undefined">Rozmiar</option>
-      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+      <option *ngFor="let productType of productTypeService.productTypesForSignType[0]" [ngValue]="productType">{{ productType.size }}</option>
     </select>
   </div>
    <div class="form-group row">
     <input class="form-control col-sm-9" type="text" placeholder="Dodatkowy tekst" [disabled]="!fontPicked">
     <select class="browser-default custom-select col-sm-3" [disabled]="!fontPicked">
       <option selected [ngValue]="undefined">Rozmiar</option>
-      <option *ngFor="let fontSize of fontSizes" [ngValue]="fontSize">{{ fontSize.size }}</option>
+      <option *ngFor="let productType of productTypeService.productTypesForSignType[0]" [ngValue]="productType">{{ productType.size }}</option>
     </select>
   </div>
   
