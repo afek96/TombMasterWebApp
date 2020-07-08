@@ -19,6 +19,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
 import { DbData } from './db-data';
+import { ProductTypesFilterPipe } from './product-types-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DbData } from './db-data';
     SummaryDeliveryComponent,
     CreateDeliveryComponent,
     NavMenuComponent,
-    HomeComponent
+    HomeComponent,
+    ProductTypesFilterPipe
   ],
   imports: [
     BrowserModule,

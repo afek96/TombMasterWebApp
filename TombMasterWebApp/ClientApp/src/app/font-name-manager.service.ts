@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError, Observable, Subject } from 'rxjs';
-import { tap, catchError, map} from 'rxjs/operators';
+import { tap, catchError, map } from 'rxjs/operators';
 
 import { FontName } from './Models/font-name';
 
@@ -20,18 +20,17 @@ export class FontNameManagerService {
     headers: this.headers
   };
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.selectedFontChange.subscribe((value) => {
       this.selectedFont = value;
-      console.log(`selectedFontChange: ${value}`);
     });
   }
 
-  getFonts(): Observable<FontName[]>{
-      return this.http.get<FontName[]>(this.apiUrl).pipe(
-        tap(data => console.log(data)),
-        catchError(this.handleError)
-      );
+  getFonts(): Observable<FontName[]> {
+    return this.http.get<FontName[]>(this.apiUrl).pipe(
+      tap(data => console.log(data)),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: any) {

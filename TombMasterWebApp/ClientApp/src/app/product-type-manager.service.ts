@@ -25,29 +25,31 @@ export class ProductTypeManagerService {
   productTypesForSignType: [number, ProductType[]][] = [];
   productTypesForSize: [number, ProductType[]][] = [];
 
-  constructor(private http: HttpClient, private fontService: FontNameManagerService) {
-    fontService.selectedFontChange.subscribe((value) => {
+  constructor(private http: HttpClient, private fontService: FontNameManagerService) { }
 
+  getProductTypesAsync(): Promise<unknown> {
+    var promise = new Promise((resolve, reject) => {
       this.productTypesForSignType = [];
       this.productTypesForSize = [];
-      if(value == undefined){
+      if (this.fontService.selectedFont == undefined) {
+        reject();
         return;
       }
 
       this.getProductTypes().subscribe(data => {
-        this.productTypes = data.filter(x=>x.fontNameId == value.id);
+        this.productTypes = data.filter(x => x.fontNameId == this.fontService.selectedFont.id);
 
-        this.productTypes.map(x=>x.size).filter((value, index, self) => self.indexOf(value) == index).forEach((value) => {
-          this.productTypesForSize.push([value, this.productTypes.filter(x=>x.size == value)]);
-          console.log(this.productTypesForSize);
+        this.productTypes.map(x => x.size).filter((value, index, self) => self.indexOf(value) == index).forEach((value) => {
+          this.productTypesForSize.push([value, this.productTypes.filter(x => x.size == value)]);
         });
-   
-        this.productTypes.map(x=>x.signType).filter((value, index, self) => self.indexOf(value) == index).forEach((value) => {
-          this.productTypesForSignType.push([value, this.productTypes.filter(x=>x.signType == value)]);
+
+        this.productTypes.map(x => x.signType).filter((value, index, self) => self.indexOf(value) == index).forEach((value) => {
+          this.productTypesForSignType.push([value, this.productTypes.filter(x => x.signType == value)]);
         });
+        resolve();
       });
     });
-     
+    return promise;
   }
 
   getProductTypes(): Observable<ProductType[]> {

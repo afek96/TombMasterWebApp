@@ -13,22 +13,26 @@ import { ProductType } from '../../Models/product-type'
   selector: 'app-create-order',
   templateUrl: './create-order.component.html',
   styleUrls: ['./create-order.component.scss'],
-  providers: [ FontNameManagerService, ProductTypeManagerService ]
+  providers: [FontNameManagerService, ProductTypeManagerService]
 })
 export class CreateOrderComponent implements OnInit {
   fontPicked = false;
+  fontDataRetrieved = false;
+  productTypeRetrived = false;
   nameFontSizePicked = false;
   nameProductType: ProductType;
   font: FontName;
   fonts: FontName[];
+  productTypesForSignType: [number, ProductType[]][];
 
-  constructor(private fontService: FontNameManagerService, public productTypeService: ProductTypeManagerService) { 
-    this.font = fontService.selectedFont
+  constructor(private fontService: FontNameManagerService, public productTypeService: ProductTypeManagerService) {
+    this.font = fontService.selectedFont;
   }
 
-  getFonts(){
+  getFonts() {
     this.fontService.getFonts().subscribe(data => {
       this.fonts = data;
+      this.fontDataRetrieved = true;
     });
   }
 
@@ -39,15 +43,16 @@ export class CreateOrderComponent implements OnInit {
     this.getFonts();
   }
 
-  onFontChange(){
+  onFontChange() {
+    this.productTypeRetrived = false;
     this.fontPicked = this.font != undefined;
     this.fontService.selectedFontChange.next(this.font);
-    console.log('Font change: ' + this.font?.id);
+    this.productTypeService.getProductTypesAsync().then(() => {
+      this.productTypesForSignType = this.productTypeService.productTypesForSignType;
+      this.productTypeRetrived = true;
+    },() => {
+      this.productTypesForSignType = null;
+      this.productTypeRetrived = false;
+    })
   }
-
-  onNameSizeChange() {
-    this.nameFontSizePicked = this.nameProductType != undefined;
-    console.log('Name size change: ' + this.nameProductType?.id);
-  }
-
 }
