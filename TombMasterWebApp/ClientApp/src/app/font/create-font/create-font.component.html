@@ -4,7 +4,7 @@
             <div class="md-form my-3">
                 <ng2-completer #inputToFocus inputClass="form-control" mdbInput class="form-control" [datasource]="fonts | pluck:'name'" [minSearchLength]="0" (focus)="completerFocus()" (blur)="completerBlur()"></ng2-completer>
                 <input #hiddenInputForLabel type="text" class="form-control" id="fontName" mdbInput hidden>
-                <label for="fontName" [ngClass]="{'active': toggle}" (click)="labelClick()">Nazwa czcionki</label>
+                <label for="fontName" (click)="labelClick()">Nazwa czcionki</label>
             </div>
         </div>
         <div class="col">
