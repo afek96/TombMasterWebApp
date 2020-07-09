@@ -3,6 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng2CompleterModule } from 'ng2-completer';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -20,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 
 import { DbData } from './db-data';
 import { ProductTypesFilterPipe } from './product-types-filter.pipe';
+import { PluckPipe } from './Shared/pluck.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { ProductTypesFilterPipe } from './product-types-filter.pipe';
     CreateDeliveryComponent,
     NavMenuComponent,
     HomeComponent,
-    ProductTypesFilterPipe
+    ProductTypesFilterPipe,
+    PluckPipe,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { ProductTypesFilterPipe } from './product-types-filter.pipe';
     MDBBootstrapModule.forRoot(),
     InMemoryWebApiModule.forRoot(DbData),
     HttpClientModule,
+    Ng2CompleterModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],

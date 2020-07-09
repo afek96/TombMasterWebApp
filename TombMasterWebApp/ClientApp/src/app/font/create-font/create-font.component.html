@@ -2,11 +2,11 @@
     <div class="form-row">
         <div class="col">
             <div class="md-form">
-                <input mdbInput type="text" id="form1" class="form-control">
-                <label for="form1" class="">Nazwa czcionki</label>
+                <ng2-completer #inputToFocus inputClass="form-control" mdbInput class="form-control" [datasource]="fonts | pluck:'name'" [minSearchLength]="0" (focus)="completerFocus()" (blur)="completerBlur()"></ng2-completer>
+                <input #hiddenInputForLabel type="text" class="form-control" id="fontName" mdbInput hidden>
+                <label for="fontName" [ngClass]="{'active': toggle}" (click)="labelClick()">Nazwa czcionki</label>
             </div>
         </div>
-
         <div class="col">
             <div class="md-form">
                 <input type="number" class="form-control" id="numberInputEx" mdbInput>
@@ -18,7 +18,7 @@
     <div class="input-group mb-3">
         <div class="input-group-prepend my-auto">
             <div class="input-group-text" style="height: 38px;">
-                <mdb-checkbox class="my-auto mx-auto" [default]="true"></mdb-checkbox> Litery
+                <mdb-checkbox class="my-auto" [default]="true"></mdb-checkbox> Litery
             </div>
         </div>
         <input type="number" class="form-control" id="minStockLetter" placeholder="Minimalna ilość na magazynie">
@@ -27,7 +27,7 @@
     <div class="input-group mb-3">
         <div class="input-group-prepend my-auto">
             <div class="input-group-text" style="height: 38px;">
-                <mdb-checkbox class="my-auto mx-auto" [default]="true"></mdb-checkbox> Liczby
+                <mdb-checkbox class="my-auto" [default]="true"></mdb-checkbox> Liczby
             </div>
         </div>
         <input type="number" class="form-control" id="minStockNumber" placeholder="Minimalna ilość na magazynie">
@@ -36,7 +36,7 @@
     <div class="input-group mb-3">
         <div class="input-group-prepend my-auto">
             <div class="input-group-text" style="height: 38px;">
-                <mdb-checkbox class="my-auto mx-auto" [default]="true"></mdb-checkbox> Krzyż i gwiazda
+                <mdb-checkbox class="my-auto" [default]="true"></mdb-checkbox> Krzyż i gwiazda
             </div>
         </div>
         <input type="number" class="form-control" id="minStockCrossAndStar" placeholder="Minimalna ilość na magazynie">
