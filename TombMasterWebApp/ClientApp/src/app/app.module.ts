@@ -20,7 +20,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
 import { DbData } from './db-data';
-import { ProductTypesFilterPipe } from './product-types-filter.pipe';
+import { ProductTypesFilterPipe } from './Shared/product-types-filter.pipe';
 import { PluckPipe } from './Shared/pluck.pipe';
 
 @NgModule({
