@@ -2,7 +2,9 @@
     <div class="form-row">
         <div class="col">
             <div class="md-form my-3">
-                <ng2-completer #inputToFocus inputClass="form-control" mdbInput class="form-control" [datasource]="fonts | pluck:'name'" [minSearchLength]="0" (focus)="completerFocus()" (blur)="completerBlur()"></ng2-completer>
+                <ng2-completer #inputToFocus inputClass="form-control" mdbInput class="form-control"
+                    [datasource]="fonts | pluck:'name'" [minSearchLength]="0" (focus)="completerFocus()"
+                    (blur)="completerBlur()"></ng2-completer>
                 <input #hiddenInputForLabel type="text" class="form-control" id="fontName" mdbInput hidden>
                 <label for="fontName" (click)="labelClick()">Nazwa czcionki</label>
             </div>
@@ -41,5 +43,10 @@
         </div>
         <input type="number" class="form-control" id="minStockCrossAndStar" placeholder="Minimalna ilość na magazynie">
     </div>
-    <button type="submit" mdbBtn color="primary">Stwórz</button>
+
+    <div class="form-group row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-primary w-100">Stwórz</button>
+        </div>
+    </div>
 </form>
