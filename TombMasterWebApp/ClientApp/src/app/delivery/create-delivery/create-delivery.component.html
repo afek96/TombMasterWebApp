@@ -1,1 +1,35 @@
-<p>create-delivery works!</p>
+<form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+    <div class="form-group row mt-3">
+        <div class="col-sm-6">
+            <select class="browser-default custom-select" name="font" [(ngModel)]="fontService.font" (ngModelChange)="fontChanged($event)"
+                [disabled]="!fontDataRetrieved">
+                <option selected [ngValue]="undefined">Wybierz czcionkę</option>
+                <option *ngFor="let font of fonts" [ngValue]="font">{{ font.name }}</option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <select class="browser-default custom-select" [disabled]="!fontService.fontPicked || !productTypeRetrived">
+                <option selected [ngValue]="undefined">Rozmiar</option>
+                <option *ngFor="let productType of productTypesForSize" [ngValue]="productType[1]">
+                    {{ productType[0] }}</option>
+            </select>
+        </div>
+    </div>
+
+    <table mdbTable>
+        <thead>
+            <tr>
+                <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr mdbTableCol *ngFor="let el of elements">
+                <th scope="row">{{el.id}}</th>
+                <td>{{el.first}}</td>
+                <td>{{el.last}}</td>
+                <td>{{el.handle}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</form>

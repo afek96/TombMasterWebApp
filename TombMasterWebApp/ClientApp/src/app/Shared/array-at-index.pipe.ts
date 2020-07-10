@@ -4,9 +4,9 @@ import { ProductType } from '../Models/product-type';
 @Pipe({
   name: 'productTypesFilter'
 })
-export class ProductTypesFilterPipe implements PipeTransform {
+export class ArrayAtIndexPipe implements PipeTransform {
 
-  transform(items: [number, ProductType[]][], filter: number): ProductType[] {
+  transform(items: [number, any[]][], filter: number): any[] {
     if (!items || !items.length || !filter)
       return null;
 

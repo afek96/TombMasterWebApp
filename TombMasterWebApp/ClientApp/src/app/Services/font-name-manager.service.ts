@@ -1,18 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError, Observable, Subject } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 
-import { FontName } from './Models/font-name';
+import { FontName } from '../Models/font-name';
 
 @Injectable(
   //{providedIn: 'root'}
 )
-export class FontNameManagerService {
+export class FontNameManagerService implements OnChanges{
   private headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
   private apiUrl = 'api/fontNames';
 
-  selectedFont: FontName;
+  fontPicked = false;
+
+  @Input() font: FontName;
 
   selectedFontChange: Subject<FontName> = new Subject<FontName>();
 
@@ -22,8 +24,14 @@ export class FontNameManagerService {
 
   constructor(private http: HttpClient) {
     this.selectedFontChange.subscribe((value) => {
-      this.selectedFont = value;
+      console.log("font: " + value);
+      this.font = value;
+      this.fontPicked = value != undefined;
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    console.log("changes");
   }
 
   getFonts(): Observable<FontName[]> {

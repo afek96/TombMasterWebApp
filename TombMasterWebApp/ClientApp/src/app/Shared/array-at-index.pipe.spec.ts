@@ -1,8 +1,8 @@
-import { ProductTypesFilterPipe } from './product-types-filter.pipe';
+import { ArrayAtIndexPipe } from './array-at-index.pipe';
 
 describe('ProductTypesFilterPipe', () => {
   it('create an instance', () => {
-    const pipe = new ProductTypesFilterPipe();
+    const pipe = new ArrayAtIndexPipe();
     expect(pipe).toBeTruthy();
   });
 });

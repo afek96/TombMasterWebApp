@@ -3,9 +3,9 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-import { FontNameManagerService } from './font-name-manager.service'
+import { FontNameManagerService } from '../Services/font-name-manager.service'
 
-import { ProductType } from './Models/product-type';
+import { ProductType } from '../Models/product-type';
 
 
 
@@ -31,13 +31,13 @@ export class ProductTypeManagerService {
     var promise = new Promise((resolve, reject) => {
       this.productTypesForSignType = [];
       this.productTypesForSize = [];
-      if (this.fontService.selectedFont == undefined) {
+      if (this.fontService.font == undefined) {
         reject();
         return;
       }
 
       this.getProductTypes().subscribe(data => {
-        this.productTypes = data.filter(x => x.fontNameId == this.fontService.selectedFont.id);
+        this.productTypes = data.filter(x => x.fontNameId == this.fontService.font.id);
 
         this.productTypes.map(x => x.size).filter((value, index, self) => self.indexOf(value) == index).forEach((value) => {
           this.productTypesForSize.push([value, this.productTypes.filter(x => x.size == value)]);

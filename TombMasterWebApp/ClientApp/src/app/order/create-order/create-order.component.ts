@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms'
 
-import { FontNameManagerService } from '../../font-name-manager.service'
-import { ProductTypeManagerService } from '../../product-type-manager.service'
+import { FontNameManagerService } from '../../Services/font-name-manager.service'
+import { ProductTypeManagerService } from '../../Services/product-type-manager.service'
 
 import { FontName } from '../../Models/font-name'
 
@@ -26,7 +26,7 @@ export class CreateOrderComponent implements OnInit {
   productTypesForSignType: [number, ProductType[]][];
 
   constructor(private fontService: FontNameManagerService, public productTypeService: ProductTypeManagerService) {
-    this.font = fontService.selectedFont;
+    this.font = fontService.font;
   }
 
   getFonts() {

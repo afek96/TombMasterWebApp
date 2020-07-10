@@ -20,7 +20,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 
 import { DbData } from './db-data';
-import { ProductTypesFilterPipe } from './Shared/product-types-filter.pipe';
+import { ArrayAtIndexPipe } from './Shared/array-at-index.pipe';
 import { PluckPipe } from './Shared/pluck.pipe';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { PluckPipe } from './Shared/pluck.pipe';
     CreateDeliveryComponent,
     NavMenuComponent,
     HomeComponent,
-    ProductTypesFilterPipe,
+    ArrayAtIndexPipe,
     PluckPipe,
   ],
   imports: [

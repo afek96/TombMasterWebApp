@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FontNameManagerService } from 'src/app/font-name-manager.service';
+import { FontNameManagerService } from 'src/app/Services/font-name-manager.service';
 import { FontName } from 'src/app/Models/font-name';
 import { CompleterCmp } from 'ng2-completer';
 
